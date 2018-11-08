@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+ <html>
+ <head>
+ 	<style>
+ 	div {
+ 		text-align: center;
+ 		display: block;
+ 	}
+ 	h2 {
+ 		font-family: test@foo, sans-serif;
+ 		font-size:15px;
+ 	}
+ 	input[type="submit"] {
+ 		background-color: blue;
+ 	}
+    
+ </style>
+ </head>
+    <body>
+    	<div>
+    	<h2>Reverting a string to number.</h2>
+    	<input id="valueRev" type="text"></input>
+    	<input type="submit" onclick="reverseString()" value="Revert"></input>
+    	 <br>
+    	 <h2>Removing a character from a string at the specified position.</h2>
+		<div>Position:<input id="position" type="number"></input></div> <br/>
+		<div>Character:<input id="character" type="text"></input></div>
+		<input type="submit" onclick="removeCharacter()" value="Remove letter"></input> <br/>
+		<h2>Verifying a positive number is a divisible by 3 or 7.</h2>
+		Number:<input id="number" type="number"></input>
+		<input type="submit" onclick="verifDiv()" value="Verif div"></input> <br/>
+		<h2>Check if a variable is numeric or not.</h2>
+		Number:<input id="num" type="text"></input>
+		<input type="submit" onclick="checkType()" value="Check Type"></input> <br/>
+		<div>
+       <script type="text/javascript">
+		function reverseString() {
+			var string = document.getElementById("valueRev").value;
+			var splitString = string.split("");//cu ajutorul lui split convertesc un string in array
+			var reverseArray = splitString.reverse();//metoda ca sa inversez elementele din array
+			var joinArray = reverseArray.join("");//cu ajutorul lui join unim elementele array-ului intr-un string
+			alert(joinArray);
+				}
+		function removeCharacter() {
+			var position = document.getElementById("position").value;
+			var string = document.getElementById("character").value;
+			var newString = string.substring(0,position - 1) + string.substring(position, string.length);
+			alert(newString);
+		}
+		function verifDiv() {
+			var nr = document.getElementById("number").value;
+			if(nr > 0 && (nr % 3 == 0 || nr % 7 == 0)) {
+				alert(nr + " is div");
+			}
+			else {
+				alert(nr + " isn't div");
+			}
+		}
+		function checkType() {
+			var nr = document.getElementById("num").value;
+			if(nr == 0) {
+				alert("Value is null");
+			}
+			else if(isNaN(nr)) {
+				alert("Char");
+			}
+			else {
+				alert("Numeric");
+			}
+		}
+		
+       </script>
+  </body>
+  </html>
+
